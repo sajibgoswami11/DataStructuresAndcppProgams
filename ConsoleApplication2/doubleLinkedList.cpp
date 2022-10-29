@@ -1,6 +1,6 @@
 // create a c program for adding items into linked list
 //
-#include "ConsoleApplication2.cpp"
+//#include "ConsoleApplication2.cpp"
 
 #pragma region doubly linkedlist with c 
 
@@ -54,7 +54,6 @@
 #pragma endregion
 
 
-
 #pragma region double linked list cpp
 //
 //class node {
@@ -63,28 +62,28 @@
 //	node* next; node* prev;
 //	node(int val) {
 //		data = val;
-//		next = NULL;
-//		prev = NULL;
+//		next = null;
+//		prev = null;
 //	}
 //};
-//void insAtHead(node* &head, int val) {
+//void insathead(node* &head, int val) {
 //	node* n = new node(val);
 //	n->next = head;
-//	if (head != NULL) {
+//	if (head != null) {
 //		head->prev = n;  
 //	}
 //	head = n;
 //
 //}
-//void insAtTail(node* &head, int val) {
-//	if (head == NULL) {
-//		insAtHead(head, val);
+//void insattail(node* &head, int val) {
+//	if (head == null) {
+//		insathead(head, val);
 //		return;
 //	}
 //	node* n = new node(val);
 //	node* temp = head;
 //
-//	while (temp->next != NULL)
+//	while (temp->next != null)
 //	{
 //		temp = temp->next;
 //	}
@@ -97,16 +96,16 @@
 //	do {
 //		cout << temp->data;
 //		temp = temp->next;
-//	} while (temp != NULL);
+//	} while (temp != null);
 //	cout << endl;
 //}
 //int main() {
-//	node* head = NULL;
-//	insAtTail(head, 1);
-//	insAtTail(head, 2);
-//	insAtTail(head, 3);
-//	insAtTail(head, 4);
-//	display(head); insAtTail(head, 5);
+//	node* head = null;
+//	insattail(head, 1);
+//	insattail(head, 2);
+//	insattail(head, 3);
+//	insattail(head, 4);
+//	display(head); insattail(head, 5);
 //	display(head);
 //	return 0;
 //}
@@ -167,6 +166,49 @@
 //    cout << sumOfnodes(root) << endl;
 //
 //    return 0;
+//}
+
+#pragma endregion
+
+#pragma region merge sort
+
+// sorting is ordering a list in ascending or descending order
+//
+//void merge(int arr[], int l,int mid, int r) {
+//	int n1 = mid - l + 1;
+//	int n2 = r - mid;
+//	int a[n1]; int b[n2];
+//	for (int i = 0; i < n1; i++) {
+//		a[i] = arr[l + i];
+//	}
+//	for (int i = 0; i < n2; i++) {
+//		b[i] = arr[mid + 1 + i];
+//	}
+//	int i = 0; int j = 0; int k = l;
+//	while (i < n1 && j < n2) {
+//		if (a[i] < b[j]) {
+//			arr[k] = a[i]; k++; i++;
+//		}
+//		else {
+//			arr[k] = b[j];
+//			k++; j++;
+//		}
+//	}
+//	while (i < n1) {
+//		arr[k] = a[i]; k++; j++;
+//	}
+//	while (j < n2) {
+//		arr[k] = b[j]; k++; j++;
+//	}
+//}
+//
+//void mergeSort(int arr[], int l, int r) {
+//	if (l < r) {
+//		int mid = (l + r) / 2;
+//		mergeSort(arr, l, mid);
+//		mergeSort(arr, mid + 1, r);
+//		merge(arr, l, mid, r);
+//	}
 //}
 
 #pragma endregion

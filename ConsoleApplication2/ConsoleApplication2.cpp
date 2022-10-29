@@ -1,12 +1,103 @@
-// ConsoleApplication2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// operator precedence * , %, /, +, - operator precedence
 //
 
-
-#include <iostream>
+// ConsoleApplication2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//#include<string>
 #include <vector>
+//#include <algorithm>
+#include <iostream>
 using namespace std;
 
+#pragma region heapsort
 
+#define pii pair<int,int> 
+#define vi vector<int> 
+#define repeat (i,a,b) for(int i=a;a<b;a++)
+#define vii vector<pii>
+#define setBits(x) builtin_popcount(x)
+
+void heapify(vi &a, int n, int i)
+{
+		int maxIdx = i; //maxidx ko intialize kiya i se ,hence start point se 
+		int l = 2 * i + 1;//left element of a parent node ,exists at 2i+1 th index
+		int r = 2 * i + 2;//right exists at 2i+2 nd node 
+
+		if (l<n && a[l] > a[maxIdx]) {//ahar left child , upar wale se bada hai toh update kar denge 
+			maxIdx = l;
+		}
+		if (r<n && a[r] > a[maxIdx]) {//same goes for right too 
+			maxIdx = r;
+		}
+		if (maxIdx != i) {    //upar wali iterattions khatam hone ke baad agar maxidx i ke baharbar nahi hai ,toh swap karenge 
+			swap(a[i], a[maxIdx]);
+
+			heapify(a, n, maxIdx);//phir naye mile tree pe vapis heapify laga denge
+		}
+}
+
+void heapsort(vi &a)
+{
+	int n = a.size();
+	for (int i = n / 2; i >= 0; i--) {
+		heapify(a, n, i);
+	}
+	for (int i = n - 1; i > 0; i--) {
+		swap(a[0], a[i]);
+		heapify(a, i, 0);
+	}
+}
+int main(){
+	int n; cin >> n;
+	vi a(n);
+	for (int i = 0; i < n; i++) 
+		cin >> a[i];
+	heapsort(a);
+
+	for (int i = 0; i < n; i++) {
+		cout << a[i] << " ";
+	}
+	return 0;
+    
+
+}
+
+#pragma endregion
+
+#pragma region quicksort
+//
+//vector <vector<int>> ans; 
+//void helper (vector<int> a, vector<vector<int>> &ans, int idx)
+//{
+//	if (idx == a.size()) {
+//	ans.push_back(a);return;}
+//	for (int i = idx; i < a.size(); i++) {
+//		if (i!= idx && a[i] == a[idx])
+//			continue;
+//		swap(a[i], a[idx]);
+//		helper(a, ans, idx + 1);
+//	}
+//}
+//vector<vector<int>> permute(vector<int> nums) {
+//	sort(nums.begin(), nums.end());
+//	vector<vector<int>> ans;
+//	helper(nums, ans, 0);
+//	return ans;
+//}
+//int32_t main() {
+//	int n; cin >> n;
+//	vector<int> a(n);
+//	for (auto& i : a)
+//		cin >> i;
+//	vector<vector<int>> res = permute(a);
+//
+//	for (auto v : res) {
+//		for (auto i : v)
+//			cout << i << " ";
+//		cout << "\n";
+//	}
+//}
+
+#pragma endregion
 
 #pragma region  DFS traversal of the graph
 
@@ -108,9 +199,13 @@ using namespace std;
 //}
 //int main() {
 //
-//	printf("%d", fun(4,3));
+//	int x =  (7 * 3) % 4 / 2 ; 
+//	/// -> 2+ 7 *0  
+//	int r = 7 * 3 % 4 /2 ; // r = 3
+//    //	7 * 3 / 2  -> 7 * 0 -> 
+//	cout << x << r; ;
+//	//printf("%d", fun(4,3));
 //}
-
 
 ////////////////////
 //int y = 0;
